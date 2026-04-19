@@ -1,0 +1,13 @@
+services:
+  face-api:
+    build: .
+    container_name: insightface-api
+    environment:
+        - RUN_ENV=docker
+    ports:
+      - "8001:8000"
+    volumes:
+      - ./data/uploads:/app/uploads
+      - ./data/face.db:/app/face.db
+      - ./data/insightface:/root/.insightface
+    restart: always
